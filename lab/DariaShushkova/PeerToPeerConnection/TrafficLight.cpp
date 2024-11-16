@@ -47,7 +47,7 @@ class TrafficLight {
         if (resumeTraffic == 200) { // Message 200 to resume the traffic received
           pedestrianWalk = false;
           redRestarted = false;
-          setTrafficLight(RED_YELLOW); // change state is allowed
+          setTrafficLight(RED_YELLOW); // Change state is allowed
           previousTime = currentTime;
         }
       }
