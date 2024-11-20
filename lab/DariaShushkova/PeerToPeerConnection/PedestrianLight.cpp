@@ -23,18 +23,20 @@ class PedestrianTrafficLight {
       if (Serial.available() > 0) {
         int command = Serial.read();
         if (command == 100) { // Message 100 request to walk received
-          setLight(GREEN); // Change state is allowed
-          previousTime = currentTime;
+          if (currentState == RED) {
+            setLight(GREEN); // Change state is allowed
+            previousTime = currentTime;
+          }
         }
       }
 
       if (currentState == GREEN && currentTime - previousTime >= crossingDuration) {
         setLight(RED);
         Serial.write(200); // Send message 200 to resume the traffic
+        previousTime = currentTime;
       }
     }
-
-  private:
+    
     void setLight(int state) {
       currentState = state;
       digitalWrite(pedestrianRedLedPin, state == RED ? HIGH : LOW);

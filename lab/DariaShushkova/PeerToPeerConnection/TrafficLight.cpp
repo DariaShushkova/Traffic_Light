@@ -13,7 +13,7 @@ class TrafficLight {
     int currentState;
     unsigned long previousTime = 0;
     bool pedestrianWalk = false;
-    bool redRestarted = false;
+    bool messageSent = false;
     int timeGreen = 10000;
     int timeYellow = 5000;
     int timeRedYellow = 1000;
@@ -38,15 +38,16 @@ class TrafficLight {
 
     void updateTrafficLight(unsigned long currentTime) {
       if (digitalRead(buttonPin) == LOW) {
-        handlePedestrianWalk(currentTime);
-        delay(100); // Debounce delay
+          if (!pedestrianWalk) {
+            pedestrianWalk = true;
+            delay(100); // Debounce delay
+          }
       }
 
       if (Serial.available() > 0) {
         int resumeTraffic = Serial.read();
         if (resumeTraffic == 200) { // Message 200 to resume the traffic received
           pedestrianWalk = false;
-          redRestarted = false;
           setTrafficLight(RED_YELLOW); // Change state is allowed
           previousTime = currentTime;
         }
@@ -66,33 +67,23 @@ class TrafficLight {
           }
           break;
         case RED:
-          if (pedestrianWalk && !redRestarted) {
+          if (pedestrianWalk && !messageSent) {
             Serial.write(100);         // Send message 100 to allow pedestrian crossing
+            messageSent = true;        // To prevent multiple messages
             previousTime = currentTime; // Reset RED timer for 10 seconds
-            redRestarted = true;       // Prevent continuous reset
           }
           if (!pedestrianWalk && currentTime - previousTime >= timeRed) {
             setTrafficLight(RED_YELLOW);
             previousTime = currentTime;
-            redRestarted = false;
           }
           break;
         case RED_YELLOW:
+          messageSent = false; // Reset the flag to allow to send the message 100 when in RED state
           if (currentTime - previousTime >= timeRedYellow) {
             setTrafficLight(GREEN);
             previousTime = currentTime;
           }
           break;
-      }
-    }
-
-    void handlePedestrianWalk(unsigned long currentTime) {
-      if (currentState == GREEN || currentState == YELLOW) {
-        pedestrianWalk = true;
-      }
-      else if (currentState == RED) {
-        pedestrianWalk = true;
-        redRestarted = false;
       }
     }
 };
