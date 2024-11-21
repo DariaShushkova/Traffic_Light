@@ -1,5 +1,6 @@
-# The Traffic Light System on Arduino Uno
-Program Overview:
+# The Pedestrian And Traffic Light System
+
+## Overview
 
 This program simulates a traffic light system integrated with the pedestrian lights and button using an Arduino Uno on the Wokwi platform. 
 The system models traffic light states (Red, Red-Yellow, Green, and Yellow) and pedestrian lights (Red and Green), changed via the button and specific time events.
@@ -24,7 +25,7 @@ The interruction between the objects is shown on the sequence diagram.
 
 The simulation is set up on the Wokwi platform, where the Arduino Uno controls three LEDs (red, yellow and green) through a TrafficLight class with the switch state pattern and a PedestrianLight class written in C++ language. The attached class diagram shows the structure of the TrafficLight class.
 
-# Components and Circuit
+## Components and Circuit
 
 The project is structured with the following components:
 
@@ -44,14 +45,15 @@ Button has the first contact (left / right) connected to the pin and the second 
 
 Mentioned components and their connection are indicated in the diagram.json file and the circuit diagram.
 
-# Wokwi Simulation Setup
+## Wokwi Simulation Setup
 
 1) Open the Wokwi platform
 2) Use the diagram.json and the circuit diagram to connect all necessary components
 3) Copy and paste the provided code TrafficLight.cpp into the Wokwi code editor
 4) Run the simulation
 
-# Files Included
+## Files Included
+
 1) ClassDiagram.jpg 
 2) SequenceDiagram.jpg
 3) StateMachineDiagram.jpg 
