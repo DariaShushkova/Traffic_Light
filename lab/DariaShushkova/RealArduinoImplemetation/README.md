@@ -6,7 +6,7 @@ This folder contains photos of the physical implementation of the Traffic and Pe
 
 The implementation is based on the code from the following folders:
 - [CarTrafficLight](../CarTrafficLight/TrafficLight.cpp): when mapping the solution included only the Traffic light for vehicles 
-- [PedestrianTrafficLight](../PedestrianTrafficLight/TrafficAndPedestrianLight.cpp): when mapping the solution included the Traffic and Pedestrian lights 
+- [PedestrianTrafficLight](../PedestrianTrafficLight/TrafficAndPedestrianLights.cpp): when mapping the solution included the Traffic and Pedestrian lights 
 
 ## Photos Description
 
@@ -35,7 +35,7 @@ The implementation is based on the code from the following folders:
 - Connect one leg of the push button to a digital input pin indicated in the used code and the other leg to GND.
 3) Upload Code to the Arduino using Arduino IDE installed on the computer:
 - For implementing the solution only with the Traffic light upload the code from the folder [CarTrafficLight](../CarTrafficLight/TrafficLight.cpp) 
-- For implementing the solution with the Traffic and Pedestrian lights load the code from the folder [PedestrianTrafficLight](../PedestrianTrafficLight/TrafficAndPedestrianLight.cpp)
+- For implementing the solution with the Traffic and Pedestrian lights load the code from the folder [PedestrianTrafficLight](../PedestrianTrafficLight/TrafficAndPedestrianLights.cpp)
 4) Power the System: Keep the Arduino connected to the computer via the USB cable or use a power supply for standalone operation.
 5) Test the Setup: Once powered, the traffic lights should cycle through the states (Red → RedYellow → Green → Yellow).
 Press the push button to simulate a pedestrian crossing request. The traffic light should switch to Red, and the pedestrian light should turn Green. After the crossing period, the system should reset to normal operation.
