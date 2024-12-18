@@ -43,7 +43,7 @@ class TrafficLightD1D2 {
       digitalWrite(d1d2GreenLedPin, state == GREEN ? HIGH : LOW);
     }
 
-    void updateTrafficLights(unsigned long currentTime) {
+    void updateTrafficLight(unsigned long currentTime) {
       if (digitalRead(buttonPin) == LOW) {
           if (!pedestrianWalk) {
             pedestrianWalk = true;
