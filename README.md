@@ -24,6 +24,11 @@ This repository contains the project related to traffic and pedestrian light sys
 - Description: Implements communication between traffic and pedestrian light controllers using UART communication.
 - [Detailed Documentation](lab/DariaShushkova/PeerToPeerConnection/)
 
+4. T-Intersection Traffic and Pedestrian Light System
+- Folder: T_Intersection/
+- Description: Simulates a synchronized traffic and pedestrian light system at a T-intersection using Arduino.
+- [Detailed Documentation](lab/DariaShushkova/T_Intersection/)
+
 ---
 
 ## Getting Started
